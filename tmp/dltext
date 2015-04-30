@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI.2>
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Panegyricus de tertio consulatu Honorii Augusti</title>
+            <author>Claudianus, Claudius</author>
+            <editor role="editor">Maurice Platnaeur</editor>
+            <funder n="org:Mellon">The Mellon Foundation</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+         <availability status="free">
+    <p>This text may be freely distributed, subject to the following
+    restrictions:</p>
+    <list>
+	<item>You credit Perseus, as follows, whenever you use the document:
+	    <quote>Text provided by Perseus Digital Library, with funding from The Mellon Foundation. Original version available for viewing and download at http://www.perseus.tufts.edu/hopper/.</quote>
+	</item>
+	<item>You leave this availability statement intact.</item>
+	<item>You use it for non-commercial purposes only.</item>
+	<item>You offer Perseus any modifications you make.</item>
+    </list>
+</availability>
+</publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>Claudian, Vol 1</title>
+                  <author>Claudianus, Claudius</author>
+                  <editor role="editor">Maurice Platnaeur</editor>
+                  <imprint>
+                     <publisher>William Heinemann; G.P. Putnam's Sons</publisher>
+                     <pubPlace>London; New York</pubPlace>
+                     <date>1922</date>
+                  </imprint>
+               </monogr>
+            </biblStruct>
+            <p>Keyboarding</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl doctype="TEI.2">
+            <state unit="poem" />
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+   </teiHeader>
+   <text id="stoa0089.stoa010.perseus-lat1">
+      <body>
+         <pb id="v.1.p.268" />   
+            <div1 type="poem" n="praef" org="uniform" sample="complete">
+               <head>Praefatio</head>
+               <p>
+                  <lb rend="displayNum" n="1" />Parvos non aquilis fas est educere fetus
+<lb rend="displayNum" n="2" />ante fidem soils iudiciumque poli.
+<lb rend="displayNum" n="3" />nam pater, excusso saluit cum tegmine proles
+<lb rend="displayNum" n="4" />ovaque maternus rupit hiulca tepor,
+<lb rend="displayNum" n="5" />protinus implumes convertit ad aethera nidos 
+<lb rend="displayNum" n="6" />et recto flammas imperat ore pati.
+<lb rend="displayNum" n="7" />consulit ardentes radios et luce magistra
+<lb rend="displayNum" n="8" />natorum vires ingeniumque probat.
+<lb rend="displayNum" n="9" />degenerem refugo torsit qui lumine visum,
+<lb rend="displayNum" n="10" />unguibus hunc saevis ira paterna ferit. 
+<lb rend="displayNum" n="11" />exploratores oculis qui pertulit ignes
+<lb rend="displayNum" n="12" />sustinuitque acie nobiliore diem,
+<lb rend="displayNum" n="13" />nutritur volucrumque potens et fulminis heres,
+<lb rend="displayNum" n="14" />gesturus summo tela trisulca Iovi.
+<lb rend="displayNum" n="15" />me quoque Pieriis temptatum saepius antris 
+<lb rend="displayNum" n="16" />audet magna suo mittere Roma deo.
+<lb rend="displayNum" n="17" />iam dominas aures, iam regia tecta meremur
+<lb rend="displayNum" n="18" />et chelys Augusto iudice nostra sonat.</p>
+            </div1>
+            <pb id="v.1.p.270" />
+            <div1 type="poem" n="1" id="poem.7" org="uniform" sample="complete">
+               <p>
+                  <lb rend="displayNum" n="1" />Tertia Romulei sumant exordia fasces
+<lb rend="displayNum" n="2" />terque tuas ducat bellatrix pompa curules;
+<lb rend="displayNum" n="3" />festior annus eat cinctusque imitata Gabinos
+<lb rend="displayNum" n="4" />dives Hydaspeis augescat purpura gemmis;
+<lb rend="displayNum" n="5" />succedant armis trabeae, tentoria lictor 
+<lb rend="displayNum" n="6" />ambiat et Latiae redeant ad signa secures,
+<lb rend="displayNum" n="7" />tuque o qui patrium curis aequalibus orbem
+<lb rend="displayNum" n="8" />Eoo cum fratre regis, precede secundis
+<lb rend="displayNum" n="9" />alitibus Phoebique novos ordire meatus,
+<lb rend="displayNum" n="10" />spes votumque poli, quem primo a limine vitae 
+<lb rend="displayNum" n="11" />nutrix aula fovet, strictis quem fulgida telis
+<lb rend="displayNum" n="12" />inter laurigeros aluerunt castra triumphos.
+<lb rend="displayNum" n="13" />ardua privatos nescit Fortuna penates
+<lb rend="displayNum" n="14" />et regnum cum luce dedit. cognata potestas
+<lb rend="displayNum" n="15" />excepit Tyrio venerabile pignus in ostro 
+<lb rend="displayNum" n="16" />lustravitque tuos aquilis victricibus ortus
+<lb rend="displayNum" n="17" />miles et in mediis cunabula praebuit hastis.
+<lb rend="displayNum" n="18" />te nascente ferox toto Germania Rheno
+<pb id="v.1.p.272" />
+                  <lb rend="displayNum" n="19" />intremuit movitque suas formidine silvas
+<lb rend="displayNum" n="20" />Caucasus et positis numen confessa pharetris 
+<lb rend="displayNum" n="21" />ignavas Meroe traxit de crine sagittas.
+<lb rend="displayNum" n="22" />reptasti per scuta puer, regumque recentes
+<lb rend="displayNum" n="23" />exuviae tibi ludus erant, primusque solebas
+<lb rend="displayNum" n="24" />aspera complecti torvum post proelia patrem,
+<lb rend="displayNum" n="25" />signa triumphato quotiens flexisset ab Histro 
+<lb rend="displayNum" n="26" />Arctoa de strage calens, et poscere partem
+<lb rend="displayNum" n="27" />de spoliis, Scythicos arcus aut rapta Gelonis
+<lb rend="displayNum" n="28" />cingula vel iaculum Daci vel frena Suebi.
+<lb rend="displayNum" n="29" />ille coruscanti clipeo te saepe volentem
+<lb rend="displayNum" n="30" />sustulit adridens et pectore pressit anhelo 
+<lb rend="displayNum" n="31" />intrepidum ferri galeae nec triste timentem
+<lb rend="displayNum" n="32" />fulgur et ad summas tendentem brachia cristas,
+<lb rend="displayNum" n="33" />tum sic laetus ait: <q direct="unspecified">rex o stellantis Olympi,
+<lb rend="displayNum" n="34" />talis perdomito redeat mihi filius hoste,
+<lb rend="displayNum" n="35" />Hyrcanas populatus opes aut caede superbus 
+<lb rend="displayNum" n="36" />Assyria, sic ense rubens, sic flamine crebro
+<lb rend="displayNum" n="37" />turbidus et grato respersus pulvere belli,
+<lb rend="displayNum" n="38" />armaque gaviso referat captiva parenti.</q>
+                  <lb rend="displayNum" n="39" />Mox ubi firmasti recto vestigia gressu,
+<lb rend="displayNum" n="40" />non tibi desidias molles nec marcida luxu 
+<lb rend="displayNum" n="41" />otia nec somnos genitor permisit inertes,
+<lb rend="displayNum" n="42" />sed nova per duros instruxit membra labores
+<lb rend="displayNum" n="43" />et cruda teneras exercuit indole vires:
+<lb rend="displayNum" n="44" />frigora saeva pati, gravibus non cedere nimbis,
+<lb rend="displayNum" n="45" />aestivum tolerare iubar, transnare sonoras 
+<lb rend="displayNum" n="46" />torrentum furias, ascensu vincere montes,
+<pb id="v.1.p.274" />
+                  <lb rend="displayNum" n="47" />planitiem cursu, valles et concava saltu,
+<lb rend="displayNum" n="48" />nec non in clipeo vigiles producere noctes,
+<lb rend="displayNum" n="49" />in galea potare nives, nunc spicula cornu
+<lb rend="displayNum" n="50" />tendere, nunc glandes Baleari spargere funda. 
+<lb rend="displayNum" n="51" />quoque magis nimium pugnae inflammaret amorem,
+<lb rend="displayNum" n="52" />facta tui numerabat avi, quem litus adustae
+<lb rend="displayNum" n="53" />horrescit Libyae ratibusque impervia Thule:
+<lb rend="displayNum" n="54" />ille leves Mauros nec falso nomine Pictos
+<lb rend="displayNum" n="55" />edomuit Scottumque vago mucrone secutus 
+<lb rend="displayNum" n="56" />fregit Hyperboreas remis audaeibus undas
+<lb rend="displayNum" n="57" />et geminis fulgens utroque sub axe tropacis
+<lb rend="displayNum" n="58" />Tethyos alternae refluas calcavit harenas.
+<lb rend="displayNum" n="59" />hos tibi virtutum stimulos, haec semina laudum,
+<lb rend="displayNum" n="60" />haec exempla dabat. non ocius hausit Achilles 
+<lb rend="displayNum" n="61" />semiferi praecepta senis, seu cuspidis artes
+<lb rend="displayNum" n="62" />sive lyrae cantus medieas seu disceret herbas.
+<lb rend="displayNum" n="63" />Interea turbata fides, civilia rursus
+<lb rend="displayNum" n="64" />bella tonant dubiumque quatit discordia mundum.
+<lb rend="displayNum" n="65" />pro crimen superum, longi pro dedecus aevi: 
+<lb rend="displayNum" n="66" />barbarus Hesperias exul possederat urbes
+<lb rend="displayNum" n="67" />sceptraque deiecto dederat Romana clienti.
+<lb rend="displayNum" n="68" />iam princeps molitur iter gentesque remotas
+<lb rend="displayNum" n="69" />colligit Aurorae, tumidus quascumque pererrat 
+<lb rend="displayNum" n="70" />Euphrates, quas lustrat Halys, quas ditat Orontes;
+<lb rend="displayNum" n="71" />turiferos Arabes saltus, vada Caspia Medi,
+<lb rend="displayNum" n="72" />Armenii Phasin, Parthi liquere Niphaten.
+<lb rend="displayNum" n="73" />Quae tibi tum Martis rabies quantusque sequendi
+<lb rend="displayNum" n="74" />ardor erat? quanto flagrabant pectora voto
+<pb id="v.1.p.276" />
+                  <lb rend="displayNum" n="75" />optatas audire tubas campique cruenta 
+<lb rend="displayNum" n="76" />tempestate frui truncisque inmergere plantas?
+<lb rend="displayNum" n="77" />ut leo, quem fulvae matris spelunca tegebat
+<lb rend="displayNum" n="78" />uberibus solitum pasci, cum crescere sensit
+<lb rend="displayNum" n="79" />ungue pedes et terga iubis et dentibus ora,
+<lb rend="displayNum" n="80" />iam negat imbelles epulas et rupe relicta 
+<lb rend="displayNum" n="81" />Gaetulo comes ire patri stabulisque minari
+<lb rend="displayNum" n="82" />aestuat et celsi tabo sordere iuvenci.
+<lb rend="displayNum" n="83" />ille vetat rerumque tibi commendat habenas
+<lb rend="displayNum" n="84" />et sacro meritos ornat diademate crines.
+<lb rend="displayNum" n="85" />tantaque se rudibus pietas ostendit in annis, 
+<lb rend="displayNum" n="86" />sic aetas animo cessit, quererentur ut omnes
+<lb rend="displayNum" n="87" />imperium tibi sero datum.</p>
+               <p>Victoria velox
+<lb rend="displayNum" n="88" />auspiciis effecta tuis. Pugnastis uterque:
+<lb rend="displayNum" n="89" />tu fatis genitorque manu. te propter et Alpes
+<lb rend="displayNum" n="90" />invadi faciles cauto nec profuit hosti 
+<lb rend="displayNum" n="91" />munitis haesisse locis: spes inrita valli
+<lb rend="displayNum" n="92" />concidit et scopulis patuerunt claustra revulsis.
+<lb rend="displayNum" n="93" />te propter gelidis Aquilo de monte procellis
+<lb rend="displayNum" n="94" />obruit adversas acies revolutaque tela
+<lb rend="displayNum" n="95" />vertit in auctores et turbine reppulit hastas 
+<lb rend="displayNum" n="96" />o nimium dilecte deo, cui fundit ab antris
+<lb rend="displayNum" n="97" />Aeolus armatas hiemes, cui militat aether
+<lb rend="displayNum" n="98" />et coniurati veniunt ad classica venti.
+<lb rend="displayNum" n="99" />Alpinae rubuere nives, et Frigidus amnis
+<pb id="v.1.p.278" />
+                  <lb rend="displayNum" n="100" />mutatis fumavit aquis turbaque cadentum 
+<lb rend="displayNum" n="101" />staret, ni rapidus iuvisset flumina sanguis.
+<lb rend="displayNum" n="102" />At ferus inventor scelerum traiecerat altum
+<lb rend="displayNum" n="103" />non uno mucrone latus, duplexque tepebat
+<lb rend="displayNum" n="104" />ensis, et ultrices in se converterat iras
+<lb rend="displayNum" n="105" />tandem iusta manus. iam libertate reducta, 
+<lb rend="displayNum" n="106" />quamvis emeritum peteret natura reverti
+<lb rend="displayNum" n="107" />numen et auratas astrorum panderet arces
+<lb rend="displayNum" n="108" />nutaretque oneris venturi conscius Atlas,
+<lb rend="displayNum" n="109" />distulit Augustus cupido se credere caelo,
+<lb rend="displayNum" n="110" />dura tibi pacatum praesenti traderet orbem. 
+<lb rend="displayNum" n="111" />nec mora: Bistoniis alacer consurgis ab oris,
+<lb rend="displayNum" n="112" />inter barbaricas ausus transire cohortes
+<lb rend="displayNum" n="113" />impavido vultu; linquis Rhodopeia saxa
+<lb rend="displayNum" n="114" />Orpheis animata modis; iuga deseris Oetes
+<lb rend="displayNum" n="115" />Herculeo damnata rogo; post Pelion intras 
+<lb rend="displayNum" n="116" />Nereis inlustre toris; te pulcher Enipeus
+<lb rend="displayNum" n="117" />celsaque Dodone stupuit rursusque locutae
+<lb rend="displayNum" n="118" />in te Chaoniae moverunt carmina quercus.
+<lb rend="displayNum" n="119" />Illyrici legitur plaga litoris; arva teruntur
+<lb rend="displayNum" n="120" />Dalmatiae; Phrygii numerantur stagna Timavi. 
+<lb rend="displayNum" n="121" />gaudent Italiae sublimibus oppida muris
+<lb rend="displayNum" n="122" />adventu sacrata tuo, summissus adorat
+<lb rend="displayNum" n="123" />Eridanus blandosque iubet mitescere fluctus
+<lb rend="displayNum" n="124" />et Phaethonteas solitae deflere ruinas
+<lb rend="displayNum" n="125" />roscida frondosae revocant electra sorores. 
+<lb rend="displayNum" n="126" />Quanti tum iuvenes, quantae sprevere pudorem
+<lb rend="displayNum" n="127" />spectandi studio matres, puerisque severi
+<pb id="v.1.p.280" />
+                  <lb rend="displayNum" n="128" />certavere senes, cum tu genitoris amico
+<lb rend="displayNum" n="129" />exceptus gremio mediam veherere per urbem
+<lb rend="displayNum" n="130" />velaretque pios communis laurea currus! 
+<lb rend="displayNum" n="131" />quis non Luciferum roseo cum Sole videri
+<lb rend="displayNum" n="132" />credidit aut iunctum Bromio radiare Tonantem?
+<lb rend="displayNum" n="133" />floret cristatis exercitus undique turmis,
+<lb rend="displayNum" n="134" />quisque sua te voce canens. praestringit aena
+<lb rend="displayNum" n="135" />lux oculos, nudique seges Mavortia ferri 
+<lb rend="displayNum" n="136" />ingeminat splendore diem, pars nobilis arcu,
+<lb rend="displayNum" n="137" />pars longe iaculis, pars comminus horrida contis;
+<lb rend="displayNum" n="138" />hi volucres tollunt aquilas, hi picta draconum
+<lb rend="displayNum" n="139" />colla levant, multusque tumet per nubila serpens
+<lb rend="displayNum" n="140" />iratus stimulante Noto vivitque receptis 
+<lb rend="displayNum" n="141" />flatibus et vario mentitur sibila tractu.
+<lb rend="displayNum" n="142" />Ut ventum ad sedes, cunctos discedere tectis
+<lb rend="displayNum" n="143" />dux iubet et generum compellat talibus ultro:
+<lb rend="displayNum" n="144" />
+                  <q direct="unspecified">bellipotens Stilicho, cuius mihi robur in armis,
+<lb rend="displayNum" n="145" />pace probata fides: quid enim per proelia gessi 
+<lb rend="displayNum" n="146" />te sine? quem merui te non sudante triumphum?
+<lb rend="displayNum" n="147" />Odrysium pariter Getico foedavimus Hebrum
+<lb rend="displayNum" n="148" />sanguine, Sarmaticas pariter prostravimus alas
+<lb rend="displayNum" n="149" />Riphaeaque simul fessos porreximus artus
+<lb rend="displayNum" n="150" />in glacie stantemque rota sulcavimus Histrum: 
+<lb rend="displayNum" n="151" />ergo age, me quoniam caelestis regia poscit,
+<lb rend="displayNum" n="152" />tu curis succede meis, tu pignora solus
+<lb rend="displayNum" n="153" />nostra fove: geminos dextra tu protege fratres.
+<pb id="v.1.p.282" />
+                     <lb rend="displayNum" n="154" />per consanguineos thalamos noctemque beatam,
+<lb rend="displayNum" n="155" />per taedas, quas ipsa tuo regina levavit 
+<lb rend="displayNum" n="156" />coniugio sociaque nurum produxit ab aula,
+<lb rend="displayNum" n="157" />indue mente patrem, crescentes dilige fetus
+<lb rend="displayNum" n="158" />ut ducis, ut soceri. lamiam securus ad astra
+<lb rend="displayNum" n="159" />te custode ferar; rupta si mole Typhoeus
+<lb rend="displayNum" n="160" />prosiliat, vinclis Tityos si membra resolvat, 
+<lb rend="displayNum" n="161" />si furor Enceladi proiecta mugiat Aetna,
+<lb rend="displayNum" n="162" />opposito Stilichone cadent.</q>
+               </p>
+               <p>Nec plura locutus,
+<lb rend="displayNum" n="163" />sicut erat, liquido signavit tramite nubes
+<lb rend="displayNum" n="164" />ingrediturque globum Lunae limenque relinquit
+<lb rend="displayNum" n="165" />Arcados et Veneris clementes advolat auras. 
+<lb rend="displayNum" n="166" />hinc Phoebi permensus iter flammamque nocentem
+<lb rend="displayNum" n="167" />Gradivi placidumque Iovem; stetit arce suprema,
+<lb rend="displayNum" n="168" />algenti qua zona riget Saturnia tractu.
+<lb rend="displayNum" n="169" />machina laxatur caeli rutilaeque patescunt
+<lb rend="displayNum" n="170" />sponte fores. Arctoa parat convexa Bootes, 
+<lb rend="displayNum" n="171" />australes reserat portas succinctus Orion
+<lb rend="displayNum" n="172" />invitantque novum sidus, pendentque vicissim
+<lb rend="displayNum" n="173" />quas partes velit ipse sequi, quibus esse sodalis
+<lb rend="displayNum" n="174" />dignetur stellis aut qua regione morari.
+<lb rend="displayNum" n="175" />o decus aetherium, terrarum gloria quondam, 
+<lb rend="displayNum" n="176" />te tuus Oceanus natali gurgite lassum
+<lb rend="displayNum" n="177" />excipit et notis Hispania proluit undis.
+<lb rend="displayNum" n="178" />fortunate parens, primos cum detegis ortus,
+<lb rend="displayNum" n="179" />adspicis Arcadium; cum te proclivior urges,
+<lb rend="displayNum" n="180" />occiduum visus remoratur Honorius ignem; 
+<lb rend="displayNum" n="181" />et quocumque vagos flectas sub cardine cursus,
+<pb id="v.1.p.284" />
+                  <lb rend="displayNum" n="182" />natorum per regna venis, qui mente serena
+<lb rend="displayNum" n="183" />maturoque regunt iunctas moderamine gentes,
+<lb rend="displayNum" n="184" />saecula qui rursus formant meliore metallo.
+<lb rend="displayNum" n="185" />luget Avarities Stygiis innexa catenis 
+<lb rend="displayNum" n="186" />cumque suo demens expellitur Ambitus auro.
+<lb rend="displayNum" n="187" />non dominantur opes nec corrumpentia sensus
+<lb rend="displayNum" n="188" />dona valent: emitur sola virtute potestas.
+<lb rend="displayNum" n="189" />Unanimi fratres, quorum mare terraque fatis
+<lb rend="displayNum" n="190" />debetur, quodcumque manus evasit avitas, 
+<lb rend="displayNum" n="191" />quod superest patri: vobis iam Mulciber arma
+<lb rend="displayNum" n="192" />praeparat et Sicula Cyclops incude laborat,
+<lb rend="displayNum" n="193" />Brontes innumeris exasperat aegida signis,
+<lb rend="displayNum" n="194" />altum fulminea crispare in casside conum
+<lb rend="displayNum" n="195" />festinat Steropes, nectit thoraca Pyragmon 
+<lb rend="displayNum" n="196" />ignifluisque gemit Lipare fumosa cavernis.
+<lb rend="displayNum" n="197" />vobis Ionia virides Neptunus in alga
+<lb rend="displayNum" n="198" />nutrit equos, qui summa freti per caerula possint
+<lb rend="displayNum" n="199" />ferre viam segetemque levi percurrere motu,
+<lb rend="displayNum" n="200" />nesciat ut spumas nec proterat ungula culmos. 
+<lb rend="displayNum" n="201" />iam video Babylona rapi Parthumque coactum
+<lb rend="displayNum" n="202" />non ficta trepidare fuga, iam Bactra teneri
+<lb rend="displayNum" n="203" />legibus et famulis Gangen pallescere ripis
+<lb rend="displayNum" n="204" />gemmatosque humilem dispergere Persida cultus.
+<lb rend="displayNum" n="205" />ite per extremum Tanaim pigrosque Triones, 
+<lb rend="displayNum" n="206" />ite per ardentem Libyam, superate vapores
+<lb rend="displayNum" n="207" />solis et arcanos Nili deprendite fontes,
+<lb rend="displayNum" n="208" />Herculeum finem, Bacchi transcurrite metas:
+<lb rend="displayNum" n="209" />vestri iuris erit, quidquid complectitur axis,
+<lb rend="displayNum" n="210" />vobis Rubra dabunt pretiosas aequora conchas, 
+<lb rend="displayNum" n="211" />Indus ebur, ramos Panchaia, vellera Seres.</p>
+            </div1>
+      </body>
+   </text>
+</TEI.2>
