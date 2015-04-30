@@ -12,7 +12,8 @@
 
 =head1 NAME
 
-test.pl - designed to test Perseus CTS servers, retrieve all text URIs and associated XML files, parse the XML files, and check the resulting tags against the CTS tags in the document.
+test.pl - designed to test Perseus CTS servers, retrieve all text URIs and associated XML files, parse the XML files, and check the resulting 
+XML tags against the CTS tags returned by a GetValidReffs query. 
 
 =head1 SYNOPSIS
 
@@ -96,6 +97,14 @@ my $term = Term::ReadLine->new('myterm');
 
 my $lib;
 
+
+
+
+#
+# The code below is left-over from this programs origins as an extension of the Tesserae system. It hasn't been removed because the code in this script will 
+# (hopefully) one day facilitate direct communication between Perseus CTS servers and the Tesserae search server.
+#
+
 BEGIN {
 
 	# look for configuration file
@@ -153,7 +162,7 @@ use Pod::Usage;
 use Storable;
 
 # initialize some variables
-
+my $spacer = "\n*******************************************************************************\n";
 my $quiet = 0;
 my $help = 0;
 
@@ -170,12 +179,14 @@ if ($help) {
 	pod2usage(1);
 }
 
-my $urn = "urn:cts:latinLit:phi0917.phi001.perseus-lat1";
+
+
+#my $urn = "urn:cts:latinLit:phi0917.phi001.perseus-lat1"; # this initial variable can be used with Chris' 'verify' subroutine below.
 			
 #print TessCTS::cts_get_passage("$urn:1.425") . "\n";
 
 
-
+# First we need the URNs of all CTS documents available to the server.
 print "Getting file list...";
 my $cap = TessCTS::cts_request("http://www.perseus.tufts.edu/hopper/CTS", "GetCapabilities");
 my $refs;
@@ -192,7 +203,14 @@ my @cts_uris;
 #
 # Retrieve all CTS URIs from the Perseus CTS server, and associate them with XML files.
 #
-#Sometimes the 'work' tag repeats in the same textgroup, and is therefore treated as an array. Sometimes the 'edition' field repeats within the same work, and is treated as an array.
+
+# Using XML::Simple means that each possible branching of CTS tags has to be accounted for. This is inferior to the system used in the parseXML subroutine,
+# and should probably be changed. The reliability of CTS tagging is the only reason the current system works at all.
+# CTS URNs returned by the GetCapabilities usually contain the filename of the corresponding XML file, like this: textinventory->textgroup->work->online->docname
+
+
+# Sometimes the 'work' tag repeats in the same textgroup, and is therefore treated by XML::Simple as an array. Sometimes the 'edition' field repeats within the same work, and is treated as an array.
+# Hence there are four possible tag arrangements.
 foreach my $textgroup (@{$refs->{'textgroup'}}) {
 	if (ref($textgroup->{'work'}) eq 'ARRAY'){ #if there's more than one work...
 		foreach my $work (@{$textgroup->{'work'}}) {
@@ -201,12 +219,12 @@ foreach my $textgroup (@{$refs->{'textgroup'}}) {
 				foreach my $edition (@{$work->{'edition'}}) {
 				my $d = $edition->{'online'}->{'docname'};
 					if ($d) {
-						print LIST "\nURN: " . $u . "\t XML: " . $d;
-						push (@xml_files, $d);
+						print LIST "\nURN: " . $u . "\t XML: " . $d; #Record all CTS URNS with their corresponding XML filenames.
+						push (@xml_files, $d); #These arrays are only built if the both CTS and XML exist.
 						push (@cts_uris, $u);
 					}
 					else {
-						push (@missing_xml, $u);
+						push (@missing_xml, $u); #Note any CTS URNS without corresponding XML file IDs
 					}
 				}
 			}
@@ -253,27 +271,81 @@ foreach my $textgroup (@{$refs->{'textgroup'}}) {
 	}
 
 }
-print MISS "URIs which appear to be missing XML file tags: \n" . join ("\n", @missing_xml);
-print "\n" . scalar (@cts_uris) . " CTS URIs identified. " . scalar (@missing_xml) . " URIs could not be associated with XML files.";
-print "\nReady to parse XML files. Files will be converted to .tess format, then reloaded for comparison with CTS files";
-for my $p (1..5) {
-	print "Comparing $cts_uris[$p] with $xml_files[$p]... \nStep one: retrieving the XML file: http://www.perseus.tufts.edu/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]\n";
-	$xml_files[$p] =~ s/\.xml$//;
-	my $ff = File::Fetch->new(	uri => "http://www.perseus.tufts.edu/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]",
-								scheme => "http",
-								host => "http://www.perseus.tufts.edu",
-								path => "/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]",
-								output_file => "Perseus_text_$xml_files[$p].xml"
-							);
-	my $contents;
-	my $where = $ff->fetch( to => 'tmp' );
-#	copy ($where, "tmp/Perseus_text_$xml_files[$p].xml");
-	print "\nStep two: parsing the XML...\n";
-	my $tessfile = parseXML($where);
-	print "Verifying file: $tessfile\n";
-	verifyXML($tessfile, $cts_uris[$p]);
+my %cts_index;
+my %xml_index;
+
+for my $array_address (0..$#cts_uris) { #Make an index of cts_uris array addresses, keyed by URI so that users can select the text that way.
+	$cts_index{$cts_uris[$array_address]} = $array_address; #Now you can use URI as the key and you'll get that URI's location in the array as a value.
+	$xml_index{$xml_files[$array_address]} = $array_address;
 }
 
+
+
+print MISS "URIs which appear to be missing XML file tags: \n" . join ("\n", @missing_xml);
+print "\n" . scalar (@cts_uris) . " CTS URIs identified. " . scalar (@missing_xml) . " URIs could not be associated with XML files.";
+
+
+
+my $text_choice = '';
+my $p = -1;
+until($text_choice eq 'Quit') {
+print "$spacer Ready to parse XML files. Files will be converted to .tess format, then reloaded for comparison with CTS files";
+$text_choice = $term->get_reply(
+	prompt  => 'Which action would you like to take?',
+	default => 'Next',
+	choices  => ['Specific CTS URI', 'Specific XML Doc', 'Previous', 'Repeat Current', 'Next', 'Quit']
+	);
+
+if ($text_choice eq 'Quit') { next;}
+
+#If the user isn't quiting, select a new text.
+if ($text_choice eq 'Next') {
+	$p++;
+}
+if ($text_choice eq 'Previous') {
+	if ($p < 1) {
+		print "You can go backwards yet; you've haven't processed two texts yet";
+		next;
+	}
+	$p--;
+}
+if ($text_choice eq 'Specific CTS URI') {
+	my $key = $term->get_reply(
+		prompt => "Enter a text URI. Example: $cts_uris[1]",
+		default => $cts_uris[1]
+	);
+	#exchange the key for the array address
+	$p = $cts_index{$key};
+}
+
+if ($text_choice eq 'Specific XML file') {
+	my $key = $term->get_reply(
+		prompt => "Enter an XML filename. Example: $xml_files[1]",
+		default => $xml_files[1]
+	);
+	#exchange the key for the array address
+	$p = $xml_index{$key};
+}
+
+
+print "Comparing $cts_uris[$p] with $xml_files[$p]... \nStep one: retrieving the XML file: http://www.perseus.tufts.edu/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]\n";
+$xml_files[$p] =~ s/\.xml$//;
+my $ff = File::Fetch->new(	uri => "http://www.perseus.tufts.edu/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]",
+							scheme => "http",
+							host => "http://www.perseus.tufts.edu",
+							path => "/hopper/dltext?doc=Perseus%3Atext%3A$xml_files[$p]",
+							output_file => "Perseus_text_$xml_files[$p].xml"
+						);
+my $contents;
+my $where = $ff->fetch( to => 'tmp' );
+#	copy ($where, "tmp/Perseus_text_$xml_files[$p].xml");
+print "\nStep two: parsing the XML...\n";
+my $tessfile = parseXML($where);
+print "Verifying file: $tessfile\n";
+verifyXML($tessfile, $cts_uris[$p]);
+
+
+}
 
 #verify("lucan.bellum_civile", $urn);
 
@@ -284,13 +356,19 @@ for my $p (1..5) {
 sub verifyXML {
    my ($text_id, $urn) = @_;
    
-   print STDERR "Verifying $text_id:\n";
+
 
    	open (X, "<:utf8", $text_id) or die $!;
    	my @tess_line;
 	my %index_tess;
+	my $count = 0;
+	my $sample = '';
 	my $flag = 0;
 	while (<X>) {
+		if ($count < 5) {
+			$sample .= $_;
+			$count++;
+		}
 		$_ =~ /^<\D+([A-Za-z0-9]+\.?[A-Za-z0-9]*\.?[A-Za-z0-9]*)>/;
 		my $tag = $1;
 		
@@ -301,8 +379,9 @@ sub verifyXML {
 		$index_tess{$tag} = 1;
 		push (@tess_line, $_);
 	}
+	print "Sample:\n$sample\n";
 	if ($flag == 0) {
-		print "No repeats detected in XML tags\n";
+		print "No repeats detected in XML tags.\n";
 	}
 	my $cap = TessCTS::cts_request("http://www.perseus.tufts.edu/hopper/CTS", "GetValidReff", {urn => $urn});
 	if ($cap) {
@@ -352,7 +431,7 @@ sub verifyXML {
 		}
 	}
 	else {
-		print "URN tags either don't exist, or there is only one. Hash of TEI elements is as follows:";
+		print "URN tags either don't exist, or there is only one. Hash of TEI elements is as follows:\n";
 		print Dumper $refs;
 	}
 }
@@ -365,7 +444,7 @@ else {
       	
 }
 
-sub verify {
+sub verify { #This sub was designed by Chris Forstall to compare a single text's XML to CTS; it has been superceded by verifyXML above.
    my ($text_id, $urn) = @_;
    
    print STDERR "Verifying $text_id:\n";
@@ -741,7 +820,7 @@ sub parseXML { #this sub used to be an independent perl script for parsing XML f
 
 		$filename = $term->get_reply(
 			prompt  => 'Enter a name for the output file:',
-			default => "file$file-$t");
+			default => "tmp/currenttext.tess");
 
 		$filename .= ".tess" unless ($filename =~ /\.tess$/);
 
