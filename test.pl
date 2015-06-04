@@ -95,7 +95,6 @@ binmode STDOUT, ":utf8";
 
 my $term = Term::ReadLine->new('myterm');
 
-my $lib;
 
 
 
@@ -105,50 +104,9 @@ my $lib;
 # (hopefully) one day facilitate direct communication between Perseus CTS servers and the Tesserae search server.
 #
 
-BEGIN {
-
-	# look for configuration file
-	
-	$lib = $Bin;
-	
-	my $oldlib = $lib;
-	
-	my $pointer;
-			
-	while (1) {
-
-		$pointer = catfile($lib, '.tesserae.conf');
-	
-		if (-r $pointer) {
-		
-			open (FH, $pointer) or die "can't open $pointer: $!";
-			
-			$lib = <FH>;
-			
-			chomp $lib;
-			
-			last;
-		}
-									
-		$lib = abs_path(catdir($lib, '..'));
-		
-		if (-d $lib and $lib ne $oldlib) {
-		
-			$oldlib = $lib;			
-			
-			next;
-		}
-		
-		die "can't find .tesserae.conf!\n";
-	}
-	
-	$lib = catdir($lib, 'TessPerl');
-}
 
 # load Tesserae-specific modules
-
-use lib $lib;
-use Tesserae;
+#use Tesserae;
 use TessCTS;
 use EasyProgressBar;
 
@@ -444,82 +402,7 @@ else {
       	
 }
 
-sub verify { #This sub was designed by Chris Forstall to compare a single text's XML to CTS; it has been superceded by verifyXML above.
-   my ($text_id, $urn) = @_;
-   
-   print STDERR "Verifying $text_id:\n";
-   
-   my $base = catfile($fs{data}, "v3", "la", $text_id, $text_id);
-   my @tess_line = @{retrieve("$base.line")};
-      
-   my @cts_suff = @{TessCTS::cts_get_valid_reff($urn)};
 
-   my %index_tess;
-   for my $i (0..$#tess_line) {
-      my $loc = $tess_line[$i]{LOCUS};
-      
-      if (exists $index_tess{$loc}) {
-         print STDERR " Tesserae has duplicate loc $loc: $index_tess{$loc},$i\n";
-      }
-      $index_tess{$loc} = $i;
-   }
-   
-   my %index_cts;
-   for my $i (0..$#cts_suff) {
-      $index_cts{$cts_suff[$i]} = $i;
-   }
-   
-   my %idmap;
-   for (keys %index_tess) {
-      $idmap{$_}{tess} = $index_tess{$_};
-   }
-   for (keys %index_cts) {
-      $idmap{$_}{cts} = $index_cts{$_};
-   }
-   
-   my %tally = (both => [], tess => [], cts => []);
-   for (keys %idmap) {
-      my $stat = "both";
-      unless (defined $idmap{$_}{tess}) { 
-         $stat = "cts";
-      }
-      unless (defined $idmap{$_}{cts}) {
-         $stat = "tess";
-      }
-      
-      push @{$tally{$stat}}, $_;
-   }
-   
-   for (qw/both tess cts/) {
-      print STDERR "  " . join("\t", $_, scalar(@{$tally{$_}})) . "\n";
-   }
-   
-   if (scalar(@{$tally{cts}}) + scalar(@{$tally{both}}) > 0) {
-      if (@{$tally{tess}}) {
-         print STDERR " Tess only:";
-         for (sort {$index_tess{$a} <=> $index_tess{$b}} @{$tally{tess}}) {
-            print STDERR " $_";
-         }
-         print STDERR "\n";
-      }
-      if (@{$tally{cts}}) {
-         print STDERR " CTS only:";
-         for (sort {$index_cts{$a} <=> $index_cts{$b}} @{$tally{cts}}) {
-            print STDERR " $_";
-         }
-         print STDERR "\n";
-      }
-   }
-   
-   my @tess_to_cts;
-   $#tess_to_cts = $#tess_line;
-   
-   for (@{$tally{"both"}}) {
-      $tess_to_cts[$index_tess{$_}] = $cts_suff[$index_cts{$_}];
-   }
-   
-   return \@tess_to_cts;
-}
 
 
 
